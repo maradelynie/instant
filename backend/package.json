@@ -1,0 +1,23 @@
+{
+  "name": "instant",
+  "version": "1.0.0",
+  "description": "App for work time controll",
+  "main": "./index.js",
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "mongodb": "3.5.9",
+    "mongoose": "5.9.19"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.4"
+  },
+  "scripts": {
+    "test": "test",
+    "server": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "Mara Oliveira",
+  "license": "MIT"
+}
