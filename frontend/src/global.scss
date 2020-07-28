@@ -1,0 +1,23 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+*{
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Arvo', serif;
+    font-weight: normal;
+}
+body{
+    background-color: $color-base;
+}
+.header__conteiner{
+    background-color: $color-principal;
+    color: $color-principal-text;
+    padding: 2em;
+    height: 15em;
+    z-index: 1;
+}
