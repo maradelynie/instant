@@ -4,11 +4,11 @@ import Button from './button';
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function timeTracker() {
+export default function timeTracker(props) {
   return (
     <>
       <div className="tracker__header">
-        <h2>Time Tricker</h2>
+        <h2>Time Tracker</h2>
         <span className="tracker__time">
           <FontAwesomeIcon className="icon__default" icon={faClock}/> 
           07:27:32
@@ -16,8 +16,8 @@ export default function timeTracker() {
       </div>
 
       <div className="tracker__buttons">
-        <Button type="attention" text="start clock" action={e => console.log("clicou")} />
-        <Button type="default" text="input time" action={e => console.log("clicou")} />
+        <Button type="attention" text="start clock" action={e => console.log("start")} />
+        <Button type="default" text="input time" action={e => props.setModal("input")} />
       </div>
     </>
   );

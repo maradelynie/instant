@@ -2,7 +2,8 @@ import React from 'react';
 import { faClock, faSignInAlt, faSignOutAlt, faUtensils, faEdit, faTrash} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function ItemRecord() {
+export default function ItemRecord(props) {
+
   return (<>
           <div className="item__container">
             <span className="item__day">01</span>
@@ -26,8 +27,8 @@ export default function ItemRecord() {
               </div>
               
             </div>
-            <FontAwesomeIcon className="icon__clicable" icon={faEdit}/>
-            <FontAwesomeIcon className="icon__trash" icon={faTrash}/>
+            <FontAwesomeIcon onClick={e => props.setModal("edit")} className="icon__clicable" icon={faEdit}/>
+            <FontAwesomeIcon onClick={e => props.setModal("delete")} className="icon__trash" icon={faTrash}/>
             
             
             </div>
