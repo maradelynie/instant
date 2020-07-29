@@ -1,11 +1,12 @@
 @import './variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     margin: 0;
     text-decoration: none;
     color: inherit;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 h1,h2,h3,h4,h5,h6{
     font-family: 'Arvo', serif;
@@ -13,11 +14,138 @@ h1,h2,h3,h4,h5,h6{
 }
 body{
     background-color: $color-base;
+    color: $color-base-text;
+    font-size: 16px;
 }
-.header__conteiner{
-    background-color: $color-principal;
+hr{
+    width: 80%;
+    opacity: .5;
+    border: 1px solid $color-principal;
+    margin: auto;
+}
+// -------------------------------------------------------------------
+.button__attention{
+    width: 100%;
+    font-size: 18px;
+    background-color: $color-secundary;
     color: $color-principal-text;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: .8em;
+    transition: .1s;
+}
+.button__attention:hover{
+    opacity: .5;
+}
+.button__attention:focus{
+    outline: none;
+}
+.button__attention:active{
+    opacity: 1;
+}
+.button__default{
+    @extend .button__attention;
+    background-color: $color-principal;
+}
+.icon__default{
+    margin: 0 5px;
+}
+.icon__clicable{
+    @extend .icon__default;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.icon__clicable:hover{
+    opacity: .5;
+}
+.icon__clicable:active{
+    opacity: 1;
+}
+.icon__trash{
+    @extend .icon__clicable;
+    color: $color-secundary;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------
+.header__container{
+    background-color: $color-principal;
     padding: 2em;
-    height: 15em;
+    height: 12em;
     z-index: 1;
+}
+.header__container h1{
+    color: $color-principal-text;
+}
+.main__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -5em;
+}
+.main__card{
+    max-width: $default-conteiner;
+    background-color: $color-base-highlight;
+    width: 100%;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 2em;
+    margin-bottom: 3em;
+    box-shadow: 5px 5px 20px #0000001f;
+}
+
+.main__animation{
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+}
+// ---------------------------------------------------------------------
+.tracker__buttons{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+.tracker__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tracker__time{
+    color: $color-secundary;
+}
+// ---------------------------------------------------------------------
+.item__container{
+    display: flex;
+    margin:  3em 0;
+    align-items: center;
+}
+.item__day{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-principal;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    color: $color-principal-text;
+}
+.item__data{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
 }
