@@ -9,7 +9,7 @@ export default function Button(props) {
   }
   
   return (
-    <button className={buttonType()} onClick={props.action}>{props.text}</button>
+    <button className={buttonType()} type={props.label} onClick={props.action}>{props.text}</button>
   );
 }
 

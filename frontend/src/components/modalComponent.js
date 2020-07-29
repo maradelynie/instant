@@ -9,25 +9,25 @@ export default function ModalComponent(props) {
   }
   const modalContent = () => {
     if(props.modal==="edit"){
-      return <EditData/>
+      return <EditData setModal={props.setModal}/>
 
     }
     if(props.modal==="delete"){
-      return <DeleteData/>
+      return <DeleteData setModal={props.setModal}/>
       
     }
     if(props.modal==="input"){
-      return <InputData/>
+      return <InputData setModal={props.setModal}/>
       
     }
   }
 
-  return (<>
-          <div onClick={e => props.setModal(false)} className="modal__bg">sdasd
-          </div>
-          <div className="modal__content">
+  return (<><div  className="modal__content">
             {modalContent()}
           </div>
+          <div  onClick={e => props.setModal(false)} className="modal__bg">
+          </div>
+          
           
 
           </>
