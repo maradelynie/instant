@@ -22,7 +22,9 @@ export default function ItemRecord() {
               <div>
                 <FontAwesomeIcon className="icon__default" icon={faClock}/>
                 <span className="item__numbers">08:58</span>
+                <span className="item__total">+ 00:58</span>
               </div>
+              
             </div>
             <FontAwesomeIcon className="icon__clicable" icon={faEdit}/>
             <FontAwesomeIcon className="icon__trash" icon={faTrash}/>
