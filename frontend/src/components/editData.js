@@ -14,19 +14,19 @@ export default function EditData(props) {
               <form >
                 <div className="form__edit">
                   <label className="label__edit">day
-                    <input className="input__default" placeholder="day" desabled></input>
+                    <input className="input__default" placeholder="day" ></input>
                   </label>
                   <label className="label__edit">start time
-                    <input className="input__default" placeholder="start time" desabled></input>
+                    <input className="input__default" placeholder="start time" ></input>
                   </label>
                   <label className="label__edit">out for lunch
-                    <input className="input__default" placeholder="out for lunch" desabled></input>
+                    <input className="input__default" placeholder="out for lunch" ></input>
                   </label>
                   <label className="label__edit">back from lunch
-                    <input className="input__default" placeholder="back from lunch" desabled></input>
+                    <input className="input__default" placeholder="back from lunch" ></input>
                   </label>
                   <label className="label__edit">end time
-                    <input className="input__default" placeholder="end time" desabled></input>
+                    <input className="input__default" placeholder="end time" ></input>
                   </label>
                 </div>
               <div className="default__buttons">  

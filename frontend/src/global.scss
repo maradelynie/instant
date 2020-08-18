@@ -46,9 +46,17 @@ hr{
 .button__attention:active{
     opacity: 1;
 }
+.button__attention:disabled{
+    cursor: default;
+    opacity: .5;
+}
 .button__default{
     @extend .button__attention;
     background-color: $color-principal;
+}
+.button__warning{
+    @extend .button__attention;
+    background-color: $color-different;
 }
 .icon__default{
     margin: 0 5px;
@@ -169,6 +177,10 @@ hr{
     font-size: 20px;
     color: $color-secundary;
 }
+.tracker__time--stoped{
+    @extend .tracker__time;
+    color: $color-base-text;
+}
 // ---------------------------------------------------------------------
 .item__container{
     display: flex;
@@ -190,10 +202,25 @@ hr{
     justify-content: space-around;
     width: 80%;
 }
+@media only screen and (max-width: 400px) {
+    .item__data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        gap: 15px;
+    }
+}
+
 .item__total{
     color:  $color-good;
     margin-left: 10px;
     font-weight: bold;
+}
+.item__total-negative{
+    @extend .item__total;
+    color:  $color-bad;
+    
 }
 // ----------------------------------------------------------------------
 .default__buttons{
@@ -213,3 +240,7 @@ hr{
     display: flex;
     flex-direction: column;
 }
+
+
+
+

@@ -37,6 +37,6 @@ connection.once('open', () => {
     connectedToMongoDB = true;
     const APP_PORT = process.env.PORT;
     app.listen(APP_PORT, () => {
-      console.log(`Server in port ${APP_PORT}`);
+      console.log(`Server on port ${APP_PORT}`);
     });
   });

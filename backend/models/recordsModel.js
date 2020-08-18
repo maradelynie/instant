@@ -6,24 +6,24 @@ let schema = mongoose.Schema({
     type: String,
     required: true
 },
-  data: {
-    type: Date,
+  date: {
+    type: String,
     required: true
 },
   gotIn: {
-    type: String,
+    type: Date,
     required: true
 },
   goneLunch: {
-    type: String,
+    type: Date,
     required: true
 },
   backLunch: {
-    type: String,
+    type: Date,
     required: true
 },
   gotOut: {
-    type: String,
+    type: Date,
     required: true
 },
   yearMonth: {
