@@ -64,7 +64,7 @@ export default function TimeTracker(props) {
   }
   const goHome = () =>{
     const month = new Date().getMonth()
-    const day = new Date().getDay()
+    const day = new Date().getDate()
     const year = new Date().getFullYear()
 
     dataToSend.gotOut = (new Date).toString()
