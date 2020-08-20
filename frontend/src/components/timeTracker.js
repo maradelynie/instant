@@ -6,10 +6,14 @@ import { fortmatMilliTimer } from "../utils";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
+import {setRecords,addRecord} from "../redux/actions";
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 export default function TimeTracker(props) {
+  const dispatch = useDispatch();
+  const {records} = useSelector(state => state);
+
   const [buttonLabel, setButtonLabel] = useState("start timer")
   const [buttonClass, setButtonClass] = useState("tracker__time--stoped")
   const [buttonAction, setButtonAction] = useState()
@@ -18,6 +22,12 @@ export default function TimeTracker(props) {
   const [timer, setTimer] = useState(0)
   let dataToSend = {}
   let interval
+
+
+  // function addRecord(data) {
+  //   dispatch(setRecords([...records,data])) 
+  // }
+  
 
   const startTimer = () =>{
     dataToSend = {}
@@ -79,7 +89,7 @@ export default function TimeTracker(props) {
     setButtonLabel("start timer")
     setButtonAction(()=> startTimer );
 
-    props.addRecord(dataToSend)
+    dispatch(addRecord([dataToSend]))
   }
   const timeRecorded = () =>{
     setButtonLabel("time recorded")

@@ -3,39 +3,44 @@ import TimeTracker from './timeTracker';
 import RecordsFrom from './recordsFrom';
 import BgAnimation from './bgAnimation';
 import recordsJson from '../mock/records.json';
+import {setRecords,addRecord} from "../redux/actions";
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
+
 
 
 export default function MainContent(props) {
-const [records, setRecords] = useState(recordsJson)
-const [recorded, setRecorded] = useState(false)
+  const dispatch = useDispatch();
+  const {records} = useSelector(state => state);
 
-  function addRecord(data) {
-    setRecords((actual)=>{
-      checkTodayRecord([...actual,data])
-      return [...actual,data]})
-    
-  }
+  const [recorded, setRecorded] = useState(false)
+
   function checkTodayRecord(data) {
-    console.log(data)
     const today = (new Date).toString()
     const findToday = data.filter(element => {
       return element.gotOut.slice(0,15)==today.slice(0,15)
     });
     if(findToday.length>0){
-      console.log("trueeee")
       setRecorded(true)
     }
   }
 
   useEffect(() => {
-    checkTodayRecord(records)
+    dispatch(setRecords(recordsJson))
   }, [])
+  
+  useEffect(() => {
+    if(records!==[]){
+      checkTodayRecord(records)
+    }
+  }, [records])
 
   return (
+    
     <main className="main__container">
       <div className="main__animation"><BgAnimation/></div>
-      <div className="main__card"><TimeTracker recorded={recorded} addRecord={addRecord} setModal={props.setModal} /></div>
-      <div className="main__card"><RecordsFrom records={records} setModal={props.setModal} /></div>
+      <div className="main__card"><TimeTracker recorded={recorded} setModal={props.setModal} /></div>
+      <div className="main__card"><RecordsFrom setModal={props.setModal} /></div>
     </main>
   );
 }
