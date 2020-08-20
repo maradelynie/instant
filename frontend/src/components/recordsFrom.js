@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 
 export default function RecordsFrom(props) {
   const {records} = useSelector(state => state);
-  console.log(records)
   const recordsToShow = records.sort((a,b) =>  b.date.slice(3,5)-a.date.slice(3,5))
 
   return (

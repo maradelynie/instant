@@ -22,3 +22,11 @@ function convertMS( milliseconds ) {
       seconds: seconds
   };
 }
+export function timeDiference (gone, back) {
+  
+  const goneDate = new Date(gone)
+  const backDate = new Date(back)
+ 
+  return backDate-goneDate
+
+}

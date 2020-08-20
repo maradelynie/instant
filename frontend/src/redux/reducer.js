@@ -1,5 +1,7 @@
 const INITIAL_STATE = {
-    records : []    
+    records : [] ,
+    selectedItem : {},
+    defaultTime : 9   
 }
 
 function reducer(state = INITIAL_STATE, action){
@@ -20,14 +22,20 @@ function reducer(state = INITIAL_STATE, action){
         
         return {
             ...state,
-            categoryName: action.value
+            records: state.records.filter(record => record.gotOut!==action.value.gotOut)
         }
         case "UPDATE_RECORD":
         
         return {
             ...state,
-            categoryName: action.value
-        }          
+            records: [action.value]
+        }    
+        case "SELECT_ITEM":
+        
+            return {
+                ...state,
+                selectedItem: action.value
+            }      
     
         default:
             return state

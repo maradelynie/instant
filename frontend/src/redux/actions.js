@@ -22,3 +22,9 @@ export function addRecord (value) {
          value:value
      }
  }
+ export function selectItem (value) {
+    return {
+         type: "SELECT_ITEM",
+         value:value
+     }
+ }

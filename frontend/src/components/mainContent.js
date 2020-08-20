@@ -3,7 +3,7 @@ import TimeTracker from './timeTracker';
 import RecordsFrom from './recordsFrom';
 import BgAnimation from './bgAnimation';
 import recordsJson from '../mock/records.json';
-import {setRecords,addRecord} from "../redux/actions";
+import {setRecords} from "../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 

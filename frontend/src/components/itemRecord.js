@@ -1,19 +1,18 @@
 import React from 'react';
 import { faClock, faSignInAlt, faSignOutAlt, faUtensils, faEdit, faTrash} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fortmatMilli } from "../utils";
+import { fortmatMilli,timeDiference } from "../utils";
+import {selectItem} from "../redux/actions";
+import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
-function timeDiference (gone, back) {
-  
-  const goneDate = new Date(gone)
-  const backDate = new Date(back)
- 
-  return backDate-goneDate
 
-}
+
 
 export default function ItemRecord(props) {
-  const defaultTime = 9;
+  const dispatch = useDispatch();
+  const {defaultTime} = useSelector(state => state);
+
   const {data} = props;
   const lunchTime = timeDiference(data.goneLunch, data.backLunch);
   const totalTime = timeDiference(data.gotIn,data.gotOut)-lunchTime;
@@ -24,6 +23,10 @@ export default function ItemRecord(props) {
       return <span id="item__total" className="item__total">{"+ "+fortmatMilli(DiffTime)}</span>;
     }
     return <span id="item__total" className="item__total-negative">{"- "+fortmatMilli(Math.abs(DiffTime))}</span>
+  }
+  const deletItem = (data) => {
+    dispatch(selectItem(data))
+    props.setModal("delete")
   }
 
   return (<>
@@ -47,10 +50,11 @@ export default function ItemRecord(props) {
                 <span className="item__numbers">{fortmatMilli(totalTime)}</span>
                 {fortmatDiff(DiffTime)}
               </div>
+    
               
             </div>
             <FontAwesomeIcon onClick={e => props.setModal("edit")} className="icon__clicable" icon={faEdit}/>
-            <FontAwesomeIcon onClick={e => props.setModal("delete")} className="icon__trash" icon={faTrash}/>
+            <FontAwesomeIcon onClick={e => deletItem(data)} className="icon__trash" icon={faTrash}/>
             
             
             </div>

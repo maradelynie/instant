@@ -23,12 +23,6 @@ export default function TimeTracker(props) {
   let dataToSend = {}
   let interval
 
-
-  // function addRecord(data) {
-  //   dispatch(setRecords([...records,data])) 
-  // }
-  
-
   const startTimer = () =>{
     dataToSend = {}
     dataToSend.gotIn = (new Date).toString()
@@ -69,7 +63,7 @@ export default function TimeTracker(props) {
       await setTimer(new Date-backTime) 
     },1000)
   
-    setButtonLabel("stop timer")
+    setButtonLabel("go home")
     setButtonAction(() => goHome)
   }
   const goHome = () =>{
