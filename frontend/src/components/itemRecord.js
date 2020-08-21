@@ -14,8 +14,8 @@ export default function ItemRecord(props) {
   const {defaultTime} = useSelector(state => state);
 
   const {data} = props;
-  const lunchTime = timeDiference(data.goneLunch, data.backLunch);
-  const totalTime = timeDiference(data.gotIn,data.gotOut)-lunchTime;
+  const lunchTime = timeDiference(data.goneLunch, data.backLunch,data.date);
+  const totalTime = timeDiference(data.gotIn,data.gotOut,data.date)-lunchTime;
   const DiffTime = totalTime-(3600000*defaultTime);
  
   const fortmatDiff = DiffTime => {
@@ -34,14 +34,14 @@ export default function ItemRecord(props) {
   }
   return (<>
           <div className="item__container">
-            <span className="item__day">{data.date.slice(3,5)}</span>
+            <span className="item__day">{data.date.split(" ")[2]}</span>
             <div className="item__data">
               <div>
-                <span className="item__numbers">{data.gotIn.slice(16,21)}</span>
+                <span className="item__numbers">{data.gotIn.slice(0,-3)}</span>
                 <FontAwesomeIcon className="icon__default" icon={faSignInAlt}/>
               </div>
               <div>
-                <span className="item__numbers">{data.gotOut.slice(16,21)}</span>
+                <span className="item__numbers">{data.gotOut.slice(0,-3)}</span>
                 <FontAwesomeIcon className="icon__default" icon={faSignOutAlt}/>
               </div>
               <div>

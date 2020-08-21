@@ -22,12 +22,18 @@ function convertMS( milliseconds ) {
       seconds: seconds
   };
 }
-export function timeDiference (gone, back) {
-  
-  const goneDate = new Date(gone)
-  const backDate = new Date(back)
+export function timeDiference (start, end, date) {
+  const FormatedStart = date.split(" ")
+  FormatedStart[4] = start
+
+  const FormatedEnd = date.split(" ")
+  FormatedEnd[4] = end
+  console.log(FormatedStart.join(' '))
+
+  const startDate = new Date(FormatedStart.join(' '))
+  const endDate = new Date(FormatedEnd.join(' '))
  
-  return backDate-goneDate
+  return endDate-startDate
 
 }
 export function makeTwoAlgoritmsNumbers (number) {

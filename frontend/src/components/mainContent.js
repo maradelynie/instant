@@ -16,9 +16,9 @@ export default function MainContent(props) {
   const [recorded, setRecorded] = useState(false)
 
   function checkTodayRecord(data) {
-    const today = (new Date).toString()
+    const today = (new Date()).toString()
     const findToday = data.filter(element => {
-      return element.gotOut.slice(0,15)==today.slice(0,15)
+      return element.gotOut.slice(0,15)===today.slice(0,15)
     });
     if(findToday.length>0){
       setRecorded(true)
@@ -27,7 +27,7 @@ export default function MainContent(props) {
 
   useEffect(() => {
     dispatch(setRecords(recordsJson))
-  }, [])
+  }, [dispatch])
   
   useEffect(() => {
     if(records!==[]){

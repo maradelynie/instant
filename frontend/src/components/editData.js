@@ -8,9 +8,6 @@ import { makeTwoAlgoritmsNumbers,getAllInputs, searchWarning} from "../utils";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const formateTime = (date) => {
-  return makeTwoAlgoritmsNumbers(date.getHours())+":"+makeTwoAlgoritmsNumbers(date.getMinutes())
-}
 const setTimeValue = (e) => {
   e.persist()
   const value = e.target.value
@@ -38,10 +35,10 @@ export default function EditData(props) {
   const dispatch = useDispatch();
   const {selectedItem} = useSelector(state => state);
   
-  const [gotIn, setGotIn] = useState(formateTime(new Date(selectedItem.gotIn)))
-  const [goneLunch, setGoneLunch] = useState(formateTime(new Date(selectedItem.goneLunch)))
-  const [backLunch, setBackLunch] = useState(formateTime(new Date(selectedItem.backLunch)))
-  const [gotOut, setGotOut] = useState(formateTime(new Date(selectedItem.gotOut)))
+  const [gotIn, setGotIn] = useState(selectedItem.gotIn.slice(0,-3))
+  const [goneLunch, setGoneLunch] = useState(selectedItem.goneLunch.slice(0,-3))
+  const [backLunch, setBackLunch] = useState(selectedItem.backLunch.slice(0,-3))
+  const [gotOut, setGotOut] = useState(selectedItem.gotOut.slice(0,-3))
 
   const sendUpdate = async (e) => {
     e.preventDefault()
@@ -51,11 +48,12 @@ export default function EditData(props) {
       
       const data = selectedItem;
 
-      data.gotIn = new Date(selectedItem.date.slice(0,5)+selectedItem.date.slice(-5)+" "+gotIn+":00").toString()
-      data.goneLunch = new Date(selectedItem.date.slice(0,5)+selectedItem.date.slice(-5)+" "+goneLunch+":00").toString()
-      data.backLunch = new Date(selectedItem.date.slice(0,5)+selectedItem.date.slice(-5)+" "+backLunch+":00").toString()
-      data.gotOut = new Date(selectedItem.date.slice(0,5)+selectedItem.date.slice(-5)+" "+gotOut+":00").toString()
+      data.gotIn = gotIn+":00"
+      data.goneLunch = goneLunch+":00"
+      data.backLunch = backLunch+":00"
+      data.gotOut = gotOut+":00"
 
+      // receber o id e incrementar antes de enviar para a lista
 
       await dispatch(updateRecord(selectedItem))
       props.setModal(false)
@@ -86,7 +84,7 @@ export default function EditData(props) {
           <div className="main__card">
           <FontAwesomeIcon onClick={e=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
 
-          <h2>Edit record {selectedItem.date}</h2>
+          <h2>Edit record {selectedItem.date.split(" ")[1]+" "+selectedItem.date.split(" ")[2]+" "+selectedItem.date.split(" ")[3]}</h2>
             
               <form >
                 <div className="form__edit">

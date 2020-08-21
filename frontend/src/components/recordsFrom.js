@@ -5,13 +5,13 @@ import {useSelector} from "react-redux";
 
 export default function RecordsFrom(props) {
   const {records} = useSelector(state => state);
-  const recordsToShow = records.sort((a,b) =>  b.date.slice(3,5)-a.date.slice(3,5))
+  const recordsToShow = records.sort((a,b) =>  b.date.split(" ")[2]-a.date.split(" ")[2])
 
   return (
     <>
       <h2>Records from {records[0]?.yearMonth}</h2>
       {recordsToShow?.map(record => {
-        return <ItemRecord key={record.gotOut} data={record} setModal={props.setModal}/>
+        return <ItemRecord key={record.id} data={record} setModal={props.setModal}/>
       })}
     </>
   );
