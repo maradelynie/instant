@@ -78,7 +78,7 @@ hr{
 
 }
 .modal__bg{
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -97,6 +97,7 @@ hr{
     align-items: center;
     z-index: 100;
     pointer-events: none;
+    // min-width: 380px;
 }
 .icon__close{
     @extend .icon__clicable;
@@ -111,6 +112,7 @@ hr{
     border: none;
     border-bottom: 3px solid $color-principal;
     padding: 1em;
+    width: 100%;
 }
 .input__default::placeholder{
 
@@ -120,6 +122,18 @@ hr{
 
     outline: none;
 }
+.input__wrong{
+    @extend .input__default;
+
+    border-bottom: 3px solid $color-bad;
+    animation: wrong  .3s linear forwards;
+}
+@keyframes wrong {
+    0%   {transform: translateX(3px); }
+    33%   { transform: translateX(-3px)}
+    66%   { transform: translateX(3px)}
+    100%   { transform: translateX(0)}
+  }
 
 
 
@@ -236,6 +250,15 @@ hr{
     gap: 20px;
     margin-top: 2em;
 }
+@media only screen and (max-width: 400px) {
+    .form__edit {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+}
+
 .label__edit{
     display: flex;
     flex-direction: column;

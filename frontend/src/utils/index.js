@@ -30,3 +30,19 @@ export function timeDiference (gone, back) {
   return backDate-goneDate
 
 }
+export function makeTwoAlgoritmsNumbers (number) {
+  return number<10? "0"+number:number
+
+}
+
+export function searchWarning (array) {
+  return array.filter(element => element.classList.contains("input__wrong")).length!==0
+
+}
+export function getAllInputs () {
+  const inputs = document.querySelectorAll('input');
+  var arr = [];
+  for(var i = inputs.length; i--; arr.unshift(inputs[i]));
+  return arr
+
+}

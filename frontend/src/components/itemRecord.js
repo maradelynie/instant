@@ -28,7 +28,10 @@ export default function ItemRecord(props) {
     dispatch(selectItem(data))
     props.setModal("delete")
   }
-
+  const editItem = (data) => {
+    dispatch(selectItem(data))
+    props.setModal("edit")
+  }
   return (<>
           <div className="item__container">
             <span className="item__day">{data.date.slice(3,5)}</span>
@@ -53,7 +56,7 @@ export default function ItemRecord(props) {
     
               
             </div>
-            <FontAwesomeIcon onClick={e => props.setModal("edit")} className="icon__clicable" icon={faEdit}/>
+            <FontAwesomeIcon onClick={e => editItem(data)} className="icon__clicable" icon={faEdit}/>
             <FontAwesomeIcon onClick={e => deletItem(data)} className="icon__trash" icon={faTrash}/>
             
             
