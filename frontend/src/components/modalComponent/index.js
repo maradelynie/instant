@@ -1,9 +1,10 @@
 import React from 'react';
-import InputData from './inputData';
-import EditData from './editData';
-import DeleteData from './deleteData';
+import InputData from '../inputData';
+import EditData from '../editData';
+import DeleteData from '../deleteData';
 
 export default function ModalComponent(props) {
+
   if(!props.modal){
     return <div></div>
   }
@@ -22,14 +23,12 @@ export default function ModalComponent(props) {
     }
   }
 
-  return (<><div  className="modal__content">
-            {modalContent()}
-          </div>
-          <div  onClick={e => props.setModal(false)} className="modal__bg">
-          </div>
-          
-          
-
+  return (<>
+            <div  className="modal__content">
+              {modalContent()}
+            </div>
+            <div  onClick={e => props.setModal(false)} className="modal__bg">
+            </div>
           </>
   );
 }

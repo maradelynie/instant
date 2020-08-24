@@ -25,39 +25,7 @@ hr{
     border: 1px solid $color-principal;
     margin: auto;
 }
-// -------------------------------------------------------------------
-.button__attention{
-    width: 100%;
-    font-size: 18px;
-    background-color: $color-secundary;
-    color: $color-principal-text;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: .8em;
-    transition: .1s;
-}
-.button__attention:hover{
-    opacity: .5;
-}
-.button__attention:focus{
-    outline: none;
-}
-.button__attention:active{
-    opacity: 1;
-}
-.button__attention:disabled{
-    cursor: default;
-    opacity: .5;
-}
-.button__default{
-    @extend .button__attention;
-    background-color: $color-principal;
-}
-.button__warning{
-    @extend .button__attention;
-    background-color: $color-different;
-}
+
 .icon__default{
     margin: 0 5px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemRecord from './itemRecord';
+import ItemRecord from '../itemRecord';
 import {useSelector} from "react-redux";
 
 

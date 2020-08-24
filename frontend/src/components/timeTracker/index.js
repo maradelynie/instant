@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import Button from './button';
-import { fortmatMilliTimer } from "../utils";
+import Button from '../button';
+import { fortmatMilliTimer } from "../../utils";
 
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {addRecord} from "../redux/actions";
+import {addRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 
 export default function TimeTracker(props) {
@@ -18,12 +18,12 @@ export default function TimeTracker(props) {
   const [butonState, setButonState] = useState("true")
   const [butonStyle, setButonStyle] = useState("attention")
   const [timer, setTimer] = useState(0)
-  let dataToSend = {}
+  let dataToSend = {} 
   let interval
 
   const startTimer = () =>{
     dataToSend = {}
-    dataToSend.gotIn = (new Date()).toString().split(" ")[4]
+    dataToSend.gotIn = new Date().toString().split(" ")[4]
 
     setButonStyle("warning")
     setButtonClass("tracker__time")
@@ -80,7 +80,7 @@ export default function TimeTracker(props) {
     setButtonLabel("start timer")
     setButtonAction(()=> startTimer );
 
-    dispatch(addRecord([dataToSend]))
+    dispatch(addRecord(dataToSend))
   }
   const timeRecorded = () =>{
     setButtonLabel("time recorded")
@@ -109,8 +109,8 @@ export default function TimeTracker(props) {
       </div>
 
       <div className="tracker__buttons">
-        <Button type={butonStyle} state={butonState} text={buttonLabel} action={buttonAction} />
-        <Button type="default" text="input time" action={e => props.setModal("input")} />
+        <Button kind={butonStyle} state={butonState} text={buttonLabel} action={buttonAction} />
+        <Button kind="default" text="input time" action={e => props.setModal("input")} />
       </div>
     </>
   );

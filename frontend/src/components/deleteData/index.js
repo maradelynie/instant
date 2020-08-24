@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './button';
-import {deleteRecord} from "../redux/actions";
+import Button from '../button';
+import {deleteRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 

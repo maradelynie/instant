@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
-import Button from './button';
-import {updateRecord} from "../redux/actions";
+import Button from '../button';
+import {updateRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
-import { setTimeValue,checkTimeValue,confirmWarning} from "../utils";
+import { setTimeValue,checkTimeValue,confirmWarning} from "../../utils";
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,19 +19,25 @@ export default function EditData(props) {
 
   const sendUpdate = async (e) => {
     e.preventDefault()
-    const data = selectedItem;
-
-      data.gotIn = gotIn+":00"
-      data.goneLunch = goneLunch+":00"
-      data.backLunch = backLunch+":00"
-      data.gotOut = gotOut+":00"
-
+    
+    const data = mountData(selectedItem)
     
     if(confirmWarning()){
-      await dispatch(updateRecord(selectedItem))
+      await dispatch(updateRecord(data))
       props.setModal(false)
     }
     
+  }
+
+  const mountData = (oldData) => {
+    const data = oldData;
+
+    data.gotIn = gotIn+":00"
+    data.goneLunch = goneLunch+":00"
+    data.backLunch = backLunch+":00"
+    data.gotOut = gotOut+":00"
+
+    return data
   }
   
   return (<>

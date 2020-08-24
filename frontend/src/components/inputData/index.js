@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
-import Button from './button';
-import {addRecord} from "../redux/actions";
+import Button from '../button';
+import {addRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
-import { setTimeValue,checkTimeValue,confirmWarning,checkDateValue} from "../utils";
+import { setTimeValue,checkTimeValue,confirmWarning,checkDateValue} from "../../utils";
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,6 +18,17 @@ export default function InputData(props) {
 
   const sendData = async (e) => {
     e.preventDefault()
+   
+    const data = mountData()
+    
+    if(confirmWarning()){
+      await dispatch(addRecord(data))
+      props.setModal(false)
+    }
+    
+  }
+
+  const mountData = () => {
     const split = new Date().toString();
     const timeZoneFormatted = split.slice(24);
     const date = new Date(day+timeZoneFormatted).toString()
@@ -32,17 +43,9 @@ export default function InputData(props) {
       gotOut: gotOut+":00",
       yearMonth,
     }
-    
-    
-    if(confirmWarning()){
-      await dispatch(addRecord(data))
-      props.setModal(false)
-    }
-    
+    return data
   }
-
-
-
+  
   return (<>
           <div className="main__card">
           <FontAwesomeIcon onClick={e=> props.setModal(false)} className="icon__close" icon={faTimes}/> 

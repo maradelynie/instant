@@ -1,9 +1,9 @@
 import React,{useState, useEffect} from 'react';
-import TimeTracker from './timeTracker';
-import RecordsFrom from './recordsFrom';
-import BgAnimation from './bgAnimation';
-import recordsJson from '../mock/records.json';
-import {setRecords} from "../redux/actions";
+import TimeTracker from '../timeTracker';
+import RecordsFrom from '../recordsFrom';
+import BgAnimation from '../bgAnimation';
+import recordsJson from '../../mock/records.json';
+import {setRecords} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
