@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Button from '../button';
 import { fortmatMilliTimer } from "../../utils";
+import {TimerClock} from './style';
 
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";
@@ -12,10 +13,10 @@ import {useDispatch} from "react-redux";
 export default function TimeTracker(props) {
   const dispatch = useDispatch();
 
+  const [disabled, setDisabled] = useState(false)
   const [buttonLabel, setButtonLabel] = useState("start timer")
-  const [buttonClass, setButtonClass] = useState("tracker__time--stoped")
+  const [timerStatus, setTimerStatus] = useState(false)
   const [buttonAction, setButtonAction] = useState()
-  const [butonState, setButonState] = useState("true")
   const [butonStyle, setButonStyle] = useState("attention")
   const [timer, setTimer] = useState(0)
   let dataToSend = {} 
@@ -26,7 +27,7 @@ export default function TimeTracker(props) {
     dataToSend.gotIn = new Date().toString().split(" ")[4]
 
     setButonStyle("warning")
-    setButtonClass("tracker__time")
+    setTimerStatus(true)
     const startTime = new Date();
     interval = setInterval(async() => {
       
@@ -39,7 +40,7 @@ export default function TimeTracker(props) {
   const lunchBrake = () =>{
     dataToSend.goneLunch = (new Date()).toString().split(" ")[4]
 
-    setButtonClass("tracker__time--stoped")
+    setTimerStatus(false)
 
     window.clearInterval(interval);
     setButtonLabel("proceed timer")
@@ -48,7 +49,8 @@ export default function TimeTracker(props) {
   const backLunch = async () =>{
     dataToSend.backLunch = (new Date()).toString().split(" ")[4]
 
-    setButtonClass("tracker__time")
+    setTimerStatus(true)
+
     setButonStyle("attention")
     let backTime
 
@@ -74,9 +76,9 @@ export default function TimeTracker(props) {
     //alterar para retorno do id da api
 
     window.clearInterval(interval);
-    console.log(dataToSend)
     setTimer(0)
-    setButtonClass("tracker__time--stoped");
+    setTimerStatus(false)
+
     setButtonLabel("start timer")
     setButtonAction(()=> startTimer );
 
@@ -84,32 +86,37 @@ export default function TimeTracker(props) {
   }
   const timeRecorded = () =>{
     setButtonLabel("time recorded")
-    setButonState("disabled")
+    setDisabled(true)
+
+  }
+  const timeNotRecorded = () =>{
+    setButtonLabel("start timer")
+    setDisabled(false)
   }
   
   useEffect(() => {
     setButtonAction(()=> startTimer );
-    
   }, [])
   useEffect(() => {
     if(props.recorded){
       timeRecorded()
+    }else{
+      timeNotRecorded()
     }
   }, [props.recorded])
 
- 
   return (
     <>
       <div className="tracker__header">
         <h2>Time Tracker</h2>
-        <span className={buttonClass}>
+        <TimerClock runing={timerStatus}>
           <FontAwesomeIcon className="icon__default" icon={faClock}/> 
-          {fortmatMilliTimer(timer)}
-        </span>
+          <span >{fortmatMilliTimer(timer)}</span>
+        </TimerClock>
       </div>
 
       <div className="tracker__buttons">
-        <Button kind={butonStyle} state={butonState} text={buttonLabel} action={buttonAction} />
+        <Button disabled={disabled} kind={butonStyle} text={buttonLabel} action={buttonAction} />
         <Button kind="default" text="input time" action={e => props.setModal("input")} />
       </div>
     </>

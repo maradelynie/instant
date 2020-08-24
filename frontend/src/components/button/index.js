@@ -16,15 +16,9 @@ export default function Button(props) {
     }
     return coloPrincipal
   }
-  const buttonStatus = () =>{
-    if(props.state==="disabled"){
-      return true
-    }
-  return false
-  }
   
   return (
-    <TimerTrigger disabled={buttonStatus()} colorText={colorText} buttonColor={setButtonKind()} type={props.label} onClick={props.action}>{props.text}</TimerTrigger>
+    <TimerTrigger disabled={props.disabled} colorText={colorText} buttonColor={setButtonKind()} type={props.label} onClick={props.action}>{props.text}</TimerTrigger>
   );
 }
 

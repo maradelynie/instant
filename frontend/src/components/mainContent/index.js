@@ -16,13 +16,23 @@ export default function MainContent(props) {
   const [recorded, setRecorded] = useState(false)
 
   function checkTodayRecord(data) {
-    const today = (new Date()).toString()
+    const today = new Date().toString()
     const findToday = data.filter(element => {
-      return element.gotOut.slice(0,15)===today.slice(0,15)
+      return formateTodayData(element.date)===formateTodayData(today)
     });
+
     if(findToday.length>0){
-      setRecorded(true)
+      return setRecorded(true)
     }
+
+    setRecorded(false)
+  }
+  const formateTodayData = (data) => {
+    const arr = data.split(" ")
+    arr[4]= "00:00:00"
+
+    return arr.slice(0,4).toString()
+
   }
 
   useEffect(() => {
@@ -32,6 +42,7 @@ export default function MainContent(props) {
   useEffect(() => {
     if(records!==[]){
       checkTodayRecord(records)
+      console.log("procurou")
     }
   }, [records])
 
