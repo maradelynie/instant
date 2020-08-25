@@ -1,7 +1,5 @@
-nao pode add mais de um por dia
-data valida
 testes
-documentação
-add icons nos forms
-loica do contador
-otimizar botao de fechar
+refatorar backend
+conectar banco
+fazer deploy
+documentar
