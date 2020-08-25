@@ -3,7 +3,7 @@ import Button from '../button';
 import InputField from "../inputField";
 import {addRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
-import { confirmWarning} from "../../utils";
+import {confirmWarning,formatMoutData} from "../../utils";
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,7 +20,7 @@ export default function InputData(props) {
   const sendData = async (e) => {
     e.preventDefault()
    
-    const data = mountData()
+    const data = mountDataInput()
     
     if(confirmWarning()){
       await dispatch(addRecord(data))
@@ -29,23 +29,30 @@ export default function InputData(props) {
     
   }
 
-  const mountData = () => {
-    const split = new Date().toString();
-    const timeZoneFormatted = split.slice(24);
-    const date = new Date(day+timeZoneFormatted).toString()
-    const yearMonth = date.split(" ")[1]+" "+date.split(" ")[3]
-
+  const mountDataInput = () => {
     const data = {
       user:"DefaultUser001",
-      date,
-      gotIn: gotIn+":00",
-      goneLunch: goneLunch+":00",
-      backLunch: backLunch+":00",
-      gotOut: gotOut+":00",
-      yearMonth,
+      date: formatDay(day),
+      gotIn: formatMoutData(gotIn),
+      goneLunch: formatMoutData(goneLunch),
+      backLunch: formatMoutData(backLunch),
+      gotOut: formatMoutData(gotOut),
+      yearMonth:formatYearMonth(day)
     }
     return data
   }
+
+  const formatDay = (day) => {
+    const split = new Date().toString();
+    const timeZoneFormatted = split.slice(24);
+    return new Date(day+timeZoneFormatted).toString()
+  }
+
+  const formatYearMonth = (day) => {
+    const date = formatDay(day)
+    return date.split(" ")[1]+" "+date.split(" ")[3]
+  }
+
   
   return (<>
           <div className="main__card">

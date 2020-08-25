@@ -17,17 +17,18 @@ export default function MainContent(props) {
 
   function checkTodayRecord(data) {
     const today = new Date().toString()
+
     const findToday = data.filter(element => {
-      return formateTodayData(element.date)===formateTodayData(today)
+      return formateDateToCompare(element.date)===formateDateToCompare(today)
     });
 
     if(findToday.length>0){
       return setRecorded(true)
     }
-
     setRecorded(false)
   }
-  const formateTodayData = (data) => {
+  
+  const formateDateToCompare = (data) => {
     const arr = data.split(" ")
     arr[4]= "00:00:00"
 

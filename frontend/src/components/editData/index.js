@@ -4,7 +4,7 @@ import InputField from "../inputField";
 import {updateRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
-import { setTimeValue,checkTimeValue,confirmWarning} from "../../utils";
+import {confirmWarning,formatMoutData} from "../../utils";
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,22 +21,22 @@ export default function EditData(props) {
   const sendUpdate = async (e) => {
     e.preventDefault()
     
-    const data = mountData(selectedItem)
+    const data = mountDataEdit(selectedItem)
     
     if(confirmWarning()){
       await dispatch(updateRecord(data))
-      props.setModal(false)
+      props.setModal(false) 
     }
     
   }
 
-  const mountData = (oldData) => {
+  const mountDataEdit = (oldData) => {
     const data = oldData;
 
-    data.gotIn = gotIn+":00"
-    data.goneLunch = goneLunch+":00"
-    data.backLunch = backLunch+":00"
-    data.gotOut = gotOut+":00"
+    data.gotIn = formatMoutData(gotIn)
+    data.goneLunch = formatMoutData(goneLunch)
+    data.backLunch = formatMoutData(backLunch)
+    data.gotOut = formatMoutData(gotOut)
 
     return data
   }

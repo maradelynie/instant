@@ -64,3 +64,7 @@ export function confirmWarning() {
   })
   return false
 }
+
+export function formatMoutData(data) {
+  return data+":00"
+}

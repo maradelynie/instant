@@ -97,6 +97,7 @@ export default function TimeTracker(props) {
   useEffect(() => {
     setButtonAction(()=> startTimer );
   }, [])
+  
   useEffect(() => {
     if(props.recorded){
       timeRecorded()

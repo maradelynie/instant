@@ -157,16 +157,7 @@ hr{
     }
 }
 
-.item__total{
-    color:  $color-good;
-    margin-left: 10px;
-    font-weight: bold;
-}
-.item__total-negative{
-    @extend .item__total;
-    color:  $color-bad;
-    
-}
+
 // ----------------------------------------------------------------------
 .default__buttons{
     display: grid;

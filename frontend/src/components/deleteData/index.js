@@ -16,10 +16,11 @@ export default function DeleteData(props) {
     await dispatch(deleteRecord(selectedItem))
     props.setModal(false)
   }
+  
 
   return (<>
           <div className="main__card">
-            <FontAwesomeIcon onClick={e=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
+            <FontAwesomeIcon onClick={()=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
 
             <h2>Are you sure? </h2><h2> There is no come back.</h2>
             <div className="default__buttons">

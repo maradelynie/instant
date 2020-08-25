@@ -3,6 +3,7 @@ import { faClock, faSignInAlt, faSignOutAlt, faUtensils, faEdit, faTrash} from "
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fortmatMilli,timeDiference } from "../../utils";
 import {selectItem} from "../../redux/actions";
+import {TimeDiff} from "./styles";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 
@@ -14,13 +15,11 @@ export default function ItemRecord(props) {
 
   const lunchTime = timeDiference(data.goneLunch, data.backLunch,data.date);
   const totalTime = timeDiference(data.gotIn,data.gotOut,data.date)-lunchTime;
-  const DiffTime = totalTime-(3600000*defaultTime);
+  const diffTime = totalTime-(3600000*defaultTime);
  
-  const fortmatDiff = DiffTime => {
-    if(DiffTime>=0){
-      return <span id="item__total" className="item__total">{"+ "+fortmatMilli(DiffTime)}</span>;
-    }
-    return <span id="item__total" className="item__total-negative">{"- "+fortmatMilli(Math.abs(DiffTime))}</span>
+  const fortmatDiff = milli => {
+    return fortmatMilli(Math.abs(milli))
+
   }
 
   const deletItem = (data) => {
@@ -53,13 +52,13 @@ export default function ItemRecord(props) {
               <div>
                 <FontAwesomeIcon className="icon__default" icon={faClock}/>
                 <span className="item__numbers">{fortmatMilli(totalTime)}</span>
-                {fortmatDiff(DiffTime)}
+                <TimeDiff milli={diffTime}>{fortmatDiff(diffTime)}</TimeDiff>
               </div>
     
               
             </div>
-            <FontAwesomeIcon onClick={e => editItem(data)} className="icon__clicable" icon={faEdit}/>
-            <FontAwesomeIcon onClick={e => deletItem(data)} className="icon__trash" icon={faTrash}/>
+            <FontAwesomeIcon onClick={() => editItem(data)} className="icon__clicable" icon={faEdit}/>
+            <FontAwesomeIcon onClick={() => deletItem(data)} className="icon__trash" icon={faTrash}/>
             
             
             </div>
