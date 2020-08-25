@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import Button from '../button';
+import InputField from "../inputField";
 import {updateRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
@@ -49,16 +50,16 @@ export default function EditData(props) {
               <form >
                 <div className="form__edit">
                   <label className="label__edit">start time
-                    <input className="input__default" onBlur={e => checkTimeValue(e)} onChange={e => setGotIn(setTimeValue(e))} value={gotIn} ></input>
+                    <InputField className="input__default" onChange={setGotIn} value={gotIn} ></InputField>
                   </label>
                   <label className="label__edit">out for lunch
-                    <input className="input__default" onBlur={e => checkTimeValue(e)} onChange={e => setGoneLunch(setTimeValue(e))} value={goneLunch} ></input>
+                    <InputField className="input__default" onChange={setGoneLunch} value={goneLunch} ></InputField>
                   </label>
                   <label className="label__edit">back from lunch
-                    <input className="input__default" onBlur={e => checkTimeValue(e)} onChange={e => setBackLunch(setTimeValue(e))} value={backLunch} ></input>
+                    <InputField className="input__default"  onChange={setBackLunch} value={backLunch} ></InputField>
                   </label>
                   <label className="label__edit">end time
-                    <input className="input__default" onBlur={e => checkTimeValue(e)} onChange={e => setGotOut(setTimeValue(e))} value={gotOut} ></input>
+                    <InputField className="input__default" onChange={setGotOut} value={gotOut} ></InputField>
                   </label>
                 </div>
               <div className="default__buttons">  

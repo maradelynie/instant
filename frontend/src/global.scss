@@ -73,46 +73,6 @@ hr{
     right: 1.5em;
     
 }
-.input__default{
-    font-size: 16px;
-    background-color: $color-base;
-    border-radius: 5px;
-    border: none;
-    border-bottom: 3px solid $color-principal;
-    padding: 1em;
-    width: 100%;
-}
-.input__default::placeholder{
-
-    color:$color-principal;
-}
-.input__default:focus{
-
-    outline: none;
-}
-.input__wrong{
-    @extend .input__default;
-    color:$color-bad;
-    border-bottom: 3px solid $color-bad;
-    animation: wrong  .3s linear forwards;
-}
-.input__wrong::placeholder{
-    color:$color-bad;
-}
-@keyframes wrong {
-    0%   {transform: translateX(3px); }
-    33%   { transform: translateX(-3px)}
-    66%   { transform: translateX(3px)}
-    100%   { transform: translateX(0)}
-  }
-
-
-
-
-
-
-
-
 
 
 

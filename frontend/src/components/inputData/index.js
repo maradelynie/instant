@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import Button from '../button';
+import InputField from "../inputField";
 import {addRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
-import { setTimeValue,checkTimeValue,confirmWarning,checkDateValue} from "../../utils";
+import { confirmWarning} from "../../utils";
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,20 +56,20 @@ export default function InputData(props) {
               <form  className="form__input-container">
                 
                   <label className="label__input">day
-                    <input className="input__default input__wrong" type="date" onBlur={e => checkDateValue(e)} onChange={e => setDay(e.target.value)} value={day} placeholder="day" ></input>
+                    <InputField type="date"  onChange={setDay} value={day} placeholder="day" ></InputField>
                   </label>
                 <div className="form__input">
                   <label className="label__input">start time
-                    <input className="input__default" type="text" onBlur={e => checkTimeValue(e)} onChange={e => setGotIn(setTimeValue(e))} value={gotIn} placeholder="00:00" ></input>
+                    <InputField type="text"  onChange={setGotIn} value={gotIn} placeholder="00:00" ></InputField>
                   </label>
                   <label className="label__input">out for lunch
-                    <input className="input__default" type="text" onBlur={e => checkTimeValue(e)} onChange={e => setGoneLunch(setTimeValue(e))} value={goneLunch} placeholder="00:00" ></input>
+                    <InputField type="text"  onChange={setGoneLunch} value={goneLunch} placeholder="00:00" ></InputField>
                   </label>
                   <label className="label__input">back from lunch
-                    <input className="input__default" type="text" onBlur={e => checkTimeValue(e)} onChange={e => setBackLunch(setTimeValue(e))} value={backLunch} placeholder="00:00" ></input>
+                    <InputField type="text" onChange={setBackLunch} value={backLunch} placeholder="00:00" ></InputField>
                   </label>
                   <label className="label__input">end time
-                    <input className="input__default" type="text" onBlur={e => checkTimeValue(e)} onChange={e => setGotOut(setTimeValue(e))} value={gotOut} placeholder="00:00" ></input>
+                    <InputField type="text"  onChange={setGotOut} value={gotOut} placeholder="00:00" ></InputField>
                   </label>
                 </div>
               <div className="default__buttons">  

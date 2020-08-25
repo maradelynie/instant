@@ -42,12 +42,10 @@ export default function MainContent(props) {
   useEffect(() => {
     if(records!==[]){
       checkTodayRecord(records)
-      console.log("procurou")
     }
   }, [records])
 
   return (
-    
     <main className="main__container">
       <div className="main__animation"><BgAnimation/></div>
       <div className="main__card"><TimeTracker recorded={recorded} setModal={props.setModal} /></div>
