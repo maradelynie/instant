@@ -6,6 +6,8 @@ import {selectItem} from "../../redux/actions";
 import {TimeDiff} from "./styles";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
+import './style.scss';
+
 
 export default function ItemRecord(props) {
   const dispatch = useDispatch();

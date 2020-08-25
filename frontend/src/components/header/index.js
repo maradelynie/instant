@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

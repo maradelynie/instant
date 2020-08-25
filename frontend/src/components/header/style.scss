@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+
+
+.header__container{
+    background-color: $color-principal;
+    padding: 2em;
+    height: 12em;
+    z-index: 1;
+}
+.header__container h1{
+    color: $color-principal-text;
+}
+
+

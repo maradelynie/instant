@@ -19,12 +19,12 @@ export default function DeleteData(props) {
   
 
   return (<>
-          <div className="main__card">
+          <div className="default__card">
             <FontAwesomeIcon onClick={()=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
 
             <h2>Are you sure? </h2><h2> There is no come back.</h2>
-            <div className="default__buttons">
-              <Button type="attention" text="delete" action={confirmDelete} />
+            <div className="form__buttons__container">
+              <Button kind="attention" type="submit" text="delete" action={confirmDelete} />
             </div>
           </div>
           </>

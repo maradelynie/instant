@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.tracker__buttons{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+.tracker__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tracker__time{
+    font-size: 20px;
+    color: $color-secundary;
+}
+.tracker__time--stoped{
+    @extend .tracker__time;
+    color: $color-base-text;
+}
+

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Button from '../button';
 import { fortmatMilliTimer } from "../../utils";
 import {TimerClock} from './style';
+import './style.scss';
 
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";

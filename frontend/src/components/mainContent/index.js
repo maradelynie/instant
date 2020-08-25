@@ -6,6 +6,7 @@ import recordsJson from '../../mock/records.json';
 import {setRecords} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
+import './style.scss';
 
 
 
@@ -49,8 +50,8 @@ export default function MainContent(props) {
   return (
     <main className="main__container">
       <div className="main__animation"><BgAnimation/></div>
-      <div className="main__card"><TimeTracker recorded={recorded} setModal={props.setModal} /></div>
-      <div className="main__card"><RecordsFrom setModal={props.setModal} /></div>
+      <div className="default__card"><TimeTracker recorded={recorded} setModal={props.setModal} /></div>
+      <div className="default__card"><RecordsFrom setModal={props.setModal} /></div>
     </main>
   );
 }

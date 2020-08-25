@@ -25,7 +25,6 @@ hr{
     border: 1px solid $color-principal;
     margin: auto;
 }
-
 .icon__default{
     margin: 0 5px;
 }
@@ -45,54 +44,13 @@ hr{
     color: $color-secundary;
 
 }
-.modal__bg{
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: $color-principal;
-    opacity: .8;
-    z-index: 10;
-    overflow: hidden;
-}
-.modal__content{
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    pointer-events: none;
-    // min-width: 380px;
-}
 .icon__close{
     @extend .icon__clicable;
     position: absolute;
     right: 1.5em;
     
 }
-
-
-
-// -------------------------------------------------------------------
-.header__container{
-    background-color: $color-principal;
-    padding: 2em;
-    height: 12em;
-    z-index: 1;
-}
-.header__container h1{
-    color: $color-principal-text;
-}
-.main__container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -5em;
-}
-.main__card{
+.default__card{
     max-width: $default-conteiner;
     background-color: $color-base-highlight;
     width: 100%;
@@ -106,66 +64,10 @@ hr{
 }
 
 
-// ---------------------------------------------------------------------
-.tracker__buttons{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 1em;
-    margin-top: 1.5em;
-}
-.tracker__header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.tracker__time{
-    font-size: 20px;
-    color: $color-secundary;
-}
-.tracker__time--stoped{
-    @extend .tracker__time;
-    color: $color-base-text;
-}
-// ---------------------------------------------------------------------
-.item__container{
-    display: flex;
-    margin:  3em 0;
-    align-items: center;
-}
-.item__day{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $color-principal;
-    border-radius: 50%;
-    width: 2.5em;
-    height: 2.5em;
-    color: $color-principal-text;
-}
-.item__data{
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-}
-@media only screen and (max-width: 400px) {
-    .item__data {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50%;
-        gap: 15px;
-    }
-}
 
 
-// ----------------------------------------------------------------------
-.default__buttons{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 2em;
-}
-// ------------------------------------------------------------
+
+
 .form__edit{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -180,6 +82,23 @@ hr{
         gap: 15px;
     }
 }
+.form__buttons__container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 2em;
+}
+.form__buttons__container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 2em;
+}
+
+
+
+
+
 .form__input{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -194,7 +113,12 @@ hr{
     display: flex;
     flex-direction: column;
 }
-
+.form__buttons__container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 2em;
+}
 
 
 

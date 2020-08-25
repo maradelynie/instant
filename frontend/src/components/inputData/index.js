@@ -4,6 +4,7 @@ import InputField from "../inputField";
 import {addRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {confirmWarning,formatMoutData} from "../../utils";
+import './style.scss';
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,7 +56,7 @@ export default function InputData(props) {
 
   
   return (<>
-          <div className="main__card">
+          <div className="default__card">
           <FontAwesomeIcon onClick={e=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
 
           <h2>input record</h2>
@@ -79,7 +80,7 @@ export default function InputData(props) {
                     <InputField type="text"  onChange={setGotOut} value={gotOut} placeholder="00:00" ></InputField>
                   </label>
                 </div>
-              <div className="default__buttons">  
+              <div className="form__buttons__container">  
                 <Button type="default" label="submit" text="send" action={e => sendData(e)} />
               </div>
               </form>

@@ -2,6 +2,8 @@ import React from 'react';
 import InputData from '../inputData';
 import EditData from '../editData';
 import DeleteData from '../deleteData';
+import './style.scss';
+
 
 export default function ModalComponent(props) {
 

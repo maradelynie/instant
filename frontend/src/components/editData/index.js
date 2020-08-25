@@ -5,6 +5,7 @@ import {updateRecord} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 import {confirmWarning,formatMoutData} from "../../utils";
+import './style.scss';
 
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,7 +43,7 @@ export default function EditData(props) {
   }
   
   return (<>
-          <div className="main__card">
+          <div className="default__card">
           <FontAwesomeIcon onClick={e=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
 
           <h2>Edit record {selectedItem.date.split(" ")[1]+" "+selectedItem.date.split(" ")[2]+" "+selectedItem.date.split(" ")[3]}</h2>
@@ -62,7 +63,7 @@ export default function EditData(props) {
                     <InputField className="input__default" onChange={setGotOut} value={gotOut} ></InputField>
                   </label>
                 </div>
-              <div className="default__buttons">  
+              <div className="form__buttons__container">  
                 <Button type="default" label="submit" text="edit" action={e => sendUpdate(e)} />
               </div>
               </form>

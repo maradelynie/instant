@@ -1,0 +1,24 @@
+@import '../../variables.scss';
+
+.modal__bg{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-principal;
+    opacity: .8;
+    z-index: 10;
+    overflow: hidden;
+}
+.modal__content{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: none;
+    // min-width: 380px;
+}
