@@ -11,19 +11,19 @@ let schema = mongoose.Schema({
     required: true
 },
   gotIn: {
-    type: Date,
+    type: String,
     required: true
 },
   goneLunch: {
-    type: Date,
+    type: String,
     required: true
 },
   backLunch: {
-    type: Date,
+    type: String,
     required: true
 },
   gotOut: {
-    type: Date,
+    type: String,
     required: true
 },
   yearMonth: {

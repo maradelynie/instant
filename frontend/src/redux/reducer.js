@@ -22,7 +22,7 @@ function reducer(state = INITIAL_STATE, action){
         
         return {
             ...state,
-            records: state.records.filter(record => record.id!==action.value.id)
+            records: state.records.filter(record => record._id!==action.value._id)
         }
         case "UPDATE_RECORD":
         

@@ -19,7 +19,7 @@ export default function InputField(props) {
     if(props.type==="date"){
       return props.onChange(e.target.value)
     }
-      return props.onChange(setTimeValue(e))
+      return props.onChange(setTimeValue(e.target.value))
     
   } 
   function checkDateValue(e) {
@@ -40,30 +40,12 @@ export default function InputField(props) {
       setKind("bad")
     }
   }
-  function setTimeValue(e) {
-    e.persist()
-    const value = e.target.value
-    const isNumber = !isNaN(value.slice(-1))
-    const isSize = value.length<=5
-    
-    if(isNumber){
-      if(isSize){
-        if(value.length===2){
-          return  value +":"
-        }else if(value.length===3 && e.nativeEvent.inputType!=="deleteContentBackward"){
-          return value.slice(0,-1)+":"+value.slice(-1)
-        }else{
-          return value
-        }
-      }else if(value.slice(-1)===":"){
-        return value.slice(0,value.length-1)
-      }
-      
-    }
-    return value.slice(0,-1)
+  function setTimeValue(value) {
+    return value
+      .replace(/\D/g, '')
+      .replace(/(\d{2})(\d)/, '$1:$2')
+      .replace(/(\d{2})(\d)/, '$1')
   }
-  
- 
   
   return (
     <Input kind={kind} type={props.type} onBlur={e => blurFunction(e)} onChange={e => onchangeFunction(e)} value={props.value} placeholder={props.placeholder}/>

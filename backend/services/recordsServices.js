@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 async function read(req, res) {
+    const {user, page} = req.params
+    const limit = 5
+    const skip = page*limit
     try{
-        const records = await recordsModel.find({user:req.params.user, yearMonth:req.params.yearMonth});
+        const records = await recordsModel.find({user: user}).sort({"date": "desc"}).skip(skip).limit(limit);
         res.send({res:true, records:records})
 
     } catch (error) {

@@ -16,7 +16,7 @@ export default function DeleteData(props) {
     await dispatch(deleteRecord(selectedItem))
     props.setModal(false)
   }
-  
+   
 
   return (<>
           <div className="default__card">

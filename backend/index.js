@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 //Setup Routes
-app.use("/api/records", recordsRouter);
+app.use("/instant/records", recordsRouter);
 
 //Connection config
 const { DB_CONNECTION } = process.env;

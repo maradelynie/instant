@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for index.js</title>
+    <title>Code coverage report for src/redux/actions.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -18,13 +18,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> index.js</h1>
+        <h1><a href="..\..\index.html">All files</a> / <a href="index.html">src/redux</a> actions.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -38,14 +38,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -86,31 +86,12 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,46 +99,53 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import Button from '../button';
-import {deleteRecord} from "../../redux/actions";
-import {useDispatch} from "react-redux";
-import {useSelector} from "react-redux";
-&nbsp;
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-&nbsp;
-&nbsp;
-export default function <span class="fstat-no" title="function not covered" >DeleteData(</span>props) {
-  const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch();</span>
-  const {selectedItem} = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >st</span>ate =&gt; <span class="cstat-no" title="statement not covered" >state)</span>;</span>
-  
-  const confirmDelete = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    await dispatch(deleteRecord(selectedItem))</span>
-<span class="cstat-no" title="statement not covered" >    props.setModal(false)</span>
-  }
-   
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return (&lt;&gt;</span>
-          &lt;div className="default__card"&gt;
-            &lt;FontAwesomeIcon onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt; <span class="cstat-no" title="statement not covered" >props.setModal(false)}</span> className="icon__close" icon={faTimes}/&gt; 
-&nbsp;
-            &lt;h2&gt;Are you sure? &lt;/h2&gt;&lt;h2&gt; There is no come back.&lt;/h2&gt;
-            &lt;div className="form__buttons__container"&gt;
-              &lt;Button kind="attention" type="submit" text="delete" action={confirmDelete} /&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;/&gt;
-  );
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function <span class="fstat-no" title="function not covered" >setRecords </span>(value) {
+<span class="cstat-no" title="statement not covered" >   return {</span>
+        type: "SET_RECORDS",
+        value:value
+    }
 }
-&nbsp;
-&nbsp;
+export function <span class="fstat-no" title="function not covered" >addRecord </span>(value) {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+         type: "ADD_RECORD",
+         value:value
+     }
+ }
+ export function <span class="fstat-no" title="function not covered" >deleteRecord </span>(value) {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+         type: "DELETE_RECORD",
+         value:value
+     }
+ }
+ export function <span class="fstat-no" title="function not covered" >updateRecord </span>(value) {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+         type: "UPDATE_RECORD",
+         value:value
+     }
+ }
+ export function <span class="fstat-no" title="function not covered" >selectItem </span>(value) {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+         type: "SELECT_ITEM",
+         value:value
+     }
+ }
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -165,17 +153,17 @@ export default function <span class="fstat-no" title="function not covered" >Del
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Aug 29 2020 00:21:32 GMT-0300 (Brasilia Standard Time)
+                at Sat Aug 29 2020 00:38:43 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
-        <script src="prettify.js"></script>
+        <script src="..\..\prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="..\..\sorter.js"></script>
+        <script src="..\..\block-navigation.js"></script>
     </body>
 </html>
     

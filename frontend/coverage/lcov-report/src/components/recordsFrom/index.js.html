@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for index.js</title>
+    <title>Code coverage report for src/components/recordsFrom/index.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(..\..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -18,7 +18,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> index.js</h1>
+        <h1><a href="..\..\..\index.html">All files</a> / <a href="index.html">src/components/recordsFrom</a> index.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -38,14 +38,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -80,35 +80,16 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,8 +97,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,35 +105,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import Button from '../button';
-import {deleteRecord} from "../../redux/actions";
-import {useDispatch} from "react-redux";
+import ItemRecord from '../itemRecord';
 import {useSelector} from "react-redux";
 &nbsp;
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 &nbsp;
+export default function <span class="fstat-no" title="function not covered" >RecordsFrom(</span>props) {
+  const {records} = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >st</span>ate =&gt; <span class="cstat-no" title="statement not covered" >state)</span>;</span>
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >DeleteData(</span>props) {
-  const dispatch = <span class="cstat-no" title="statement not covered" >useDispatch();</span>
-  const {selectedItem} = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >st</span>ate =&gt; <span class="cstat-no" title="statement not covered" >state)</span>;</span>
-  
-  const confirmDelete = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    await dispatch(deleteRecord(selectedItem))</span>
-<span class="cstat-no" title="statement not covered" >    props.setModal(false)</span>
+  const sortRecords = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(r</span>ecords) =&gt;{</span>
+<span class="cstat-no" title="statement not covered" >    return records.sort(<span class="fstat-no" title="function not covered" >(a</span>,b) =&gt;  <span class="cstat-no" title="statement not covered" >b.date.split(" ")[2]-a.date.split(" ")[2])</span></span>
   }
-   
+  const recordsToShow = <span class="cstat-no" title="statement not covered" >sortRecords(records)</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (&lt;&gt;</span>
-          &lt;div className="default__card"&gt;
-            &lt;FontAwesomeIcon onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt; <span class="cstat-no" title="statement not covered" >props.setModal(false)}</span> className="icon__close" icon={faTimes}/&gt; 
-&nbsp;
-            &lt;h2&gt;Are you sure? &lt;/h2&gt;&lt;h2&gt; There is no come back.&lt;/h2&gt;
-            &lt;div className="form__buttons__container"&gt;
-              &lt;Button kind="attention" type="submit" text="delete" action={confirmDelete} /&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;/&gt;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;&gt;
+      &lt;h2&gt;Records from {records[0]?.yearMonth}&lt;/h2&gt;
+      {recordsToShow?.map(<span class="fstat-no" title="function not covered" >re</span>cord =&gt; {
+<span class="cstat-no" title="statement not covered" >        return &lt;ItemRecord key={record.id} data={record} setModal={props.setModal}/&gt;</span>
+      })}
+    &lt;/&gt;
   );
 }
 &nbsp;
@@ -165,17 +135,17 @@ export default function <span class="fstat-no" title="function not covered" >Del
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Aug 29 2020 00:21:32 GMT-0300 (Brasilia Standard Time)
+                at Sat Aug 29 2020 00:38:43 GMT-0300 (Brasilia Standard Time)
             </div>
         </div>
-        <script src="prettify.js"></script>
+        <script src="..\..\..\prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="..\..\..\sorter.js"></script>
+        <script src="..\..\..\block-navigation.js"></script>
     </body>
 </html>
     

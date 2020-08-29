@@ -2,13 +2,13 @@ import React,{useState, useEffect} from 'react';
 import TimeTracker from '../timeTracker';
 import RecordsFrom from '../recordsFrom';
 import BgAnimation from '../bgAnimation';
-import recordsJson from '../../mock/records.json';
 import {setRecords} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 import './style.scss';
 
-
+import {getRecords} from "../../api";
+// import recordsJson from '../../mock/records.json';
 
 export default function MainContent(props) {
   const dispatch = useDispatch();
@@ -38,7 +38,12 @@ export default function MainContent(props) {
   }
 
   useEffect(() => {
-    dispatch(setRecords(recordsJson))
+    const getBdData = async () => {
+      const data = await getRecords("")
+      dispatch(setRecords(data.records))
+    }
+    getBdData()
+    
   }, [dispatch])
   
   useEffect(() => {
