@@ -64,20 +64,20 @@ export default function InputData(props) {
               <form  className="form__input-container">
                 
                   <label className="label__input">day
-                    <InputField type="date"  onChange={setDay} value={day} placeholder="day" ></InputField>
+                    <InputField data-testid="input-element" type="date"  onChange={setDay} value={day} placeholder="day" ></InputField>
                   </label>
                 <div className="form__input">
                   <label className="label__input">start time
-                    <InputField type="text"  onChange={setGotIn} value={gotIn} placeholder="00:00" ></InputField>
+                    <InputField data-testid="input-element" type="text" onChange={setGotIn} value={gotIn} placeholder="00:00" ></InputField>
                   </label>
                   <label className="label__input">out for lunch
-                    <InputField type="text"  onChange={setGoneLunch} value={goneLunch} placeholder="00:00" ></InputField>
+                    <InputField data-testid="input-element" type="text"  onChange={setGoneLunch} value={goneLunch} placeholder="00:00" ></InputField>
                   </label>
                   <label className="label__input">back from lunch
-                    <InputField type="text" onChange={setBackLunch} value={backLunch} placeholder="00:00" ></InputField>
+                    <InputField data-testid="input-element" type="text" onChange={setBackLunch} value={backLunch} placeholder="00:00" ></InputField>
                   </label>
                   <label className="label__input">end time
-                    <InputField type="text"  onChange={setGotOut} value={gotOut} placeholder="00:00" ></InputField>
+                    <InputField data-testid="input-element" type="text"  onChange={setGotOut} value={gotOut} placeholder="00:00" ></InputField>
                   </label>
                 </div>
               <div className="form__buttons__container">  

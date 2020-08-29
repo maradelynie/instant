@@ -22,7 +22,6 @@ export default function InputField(props) {
       return props.onChange(setTimeValue(e))
     
   } 
-
   function checkDateValue(e) {
     const isNone = e.target.value===""
     if(isNone){
@@ -58,10 +57,10 @@ export default function InputField(props) {
         }
       }else if(value.slice(-1)===":"){
         return value.slice(0,value.length-1)
+      }
+      
     }
-    
-  }
-  return value.slice(0,-1)
+    return value.slice(0,-1)
   }
   
  

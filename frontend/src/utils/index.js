@@ -6,7 +6,7 @@ export function fortmatMilliTimer (milliseconds){
   const diff = convertMS(milliseconds)
   return (diff.hour<10?"0"+diff.hour: diff.hour)+":"+(diff.minute<10?"0"+diff.minute: diff.minute)+":"+(diff.seconds<10?"0"+diff.seconds: diff.seconds);
 }
-function convertMS( milliseconds ) {
+export function convertMS( milliseconds ) {
   var day, hour, minute, seconds;
   seconds = Math.floor(milliseconds / 1000);
   minute = Math.floor(seconds / 60);
@@ -23,6 +23,7 @@ function convertMS( milliseconds ) {
   };
 }
 export function timeDiference (start, end, date) {
+
   const FormatedStart = date.split(" ")
   FormatedStart[4] = start
 
@@ -31,15 +32,21 @@ export function timeDiference (start, end, date) {
 
   const startDate = new Date(FormatedStart.join(' '))
   const endDate = new Date(FormatedEnd.join(' '))
- 
+
+  if(start.slice(0,2)>end.slice(0,2)){
+    const dayDiff = start.slice(0,2)-end.slice(0,2)
+    endDate.setDate(endDate.getDate() + dayDiff)
+  }
+
   return endDate-startDate
 
 }
-export function makeTwoAlgoritmsNumbers (number) {
-  return number<10? "0"+number:number
+export function makeTwoDigitsNumbers (number) {
+  const isNegative = number<0?"-":"";
+  const isTwoDigits = number<10? "0"+Math.abs(number):Math.abs(number)
+  return isNegative+isTwoDigits.toString()
 
 }
-
 export function searchWarning (array) {
   return array.filter(element => element.attributes.kind.nodeValue==="bad").length!==0
 
@@ -51,20 +58,21 @@ export function getAllInputs () {
   return arr
 
 }
-
 export function confirmWarning() {
+  
+  getAllInputs().forEach(input => {
+    input.focus()
+    input.blur()
+  })
+  
   const warnings = searchWarning(getAllInputs());
 
   if(!warnings){
     return true
   }
-  getAllInputs().forEach(input => {
-    input.focus()
-    input.blur()
-  })
+
   return false
 }
-
 export function formatMoutData(data) {
   return data+":00"
 }
