@@ -15,7 +15,7 @@ export default function RecordsFrom(props) {
     <>
       <h2>Records from {records[0]?.yearMonth}</h2>
       {recordsToShow?.map(record => {
-        return <ItemRecord key={record.id} data={record} setModal={props.setModal}/>
+        return <ItemRecord key={record._id} data={record} setModal={props.setModal}/>
       })}
     </>
   );

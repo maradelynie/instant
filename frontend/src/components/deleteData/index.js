@@ -7,12 +7,14 @@ import {useSelector} from "react-redux";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import {deleteRecordApi} from "../../api";
 
 export default function DeleteData(props) {
   const dispatch = useDispatch();
   const {selectedItem} = useSelector(state => state);
   
   const confirmDelete = async () => {
+    await deleteRecordApi(selectedItem._id)
     await dispatch(deleteRecord(selectedItem))
     props.setModal(false)
   }

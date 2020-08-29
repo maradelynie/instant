@@ -8,9 +8,15 @@ const apiSimple = axios.create({
     baseURL: base,
 });
 
-export async function getRecords(page)  {
+export async function getRecordsApi(page)  {
     const route = user+"/"+page
     const response = await apiSimple.get(route);
     
     return response.data
 }
+export async function deleteRecordApi(id)  {
+    const response = await apiSimple.delete(id);
+    console.log(response.data)
+    return response.data
+}
+

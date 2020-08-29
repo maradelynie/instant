@@ -1,6 +1,6 @@
 testes
 refatorar backend
-fazer paginação de get 20 em 20
+tratar erros
 conectar banco
 fazer deploy
 documentar

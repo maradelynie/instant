@@ -7,7 +7,7 @@ import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
 import './style.scss';
 
-import {getRecords} from "../../api";
+import {getRecordsApi} from "../../api";
 // import recordsJson from '../../mock/records.json';
 
 export default function MainContent(props) {
@@ -39,7 +39,7 @@ export default function MainContent(props) {
 
   useEffect(() => {
     const getBdData = async () => {
-      const data = await getRecords("")
+      const data = await getRecordsApi("")
       dispatch(setRecords(data.records))
     }
     getBdData()
