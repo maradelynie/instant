@@ -80,12 +80,12 @@ export default function MainContent(props) {
   }, [records])
 
   return (
-    <main className="main__container">
+    <div className="main__container">
       <div className="main__animation"><BgAnimation/></div>
       <div className="default__card"><TimeTracker setError={props.setError} recorded={recorded} setModal={props.setModal} /></div>
-      <div className="default__card"><RecordsFrom setModal={props.setModal} /></div>
+      <main className="default__card"><RecordsFrom setModal={props.setModal} /></main>
       <ShowMore action={getLoadMore} noMore={loadMore}/>
-    </main>
+    </div>
   );
 }
 

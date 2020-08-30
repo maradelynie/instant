@@ -29,7 +29,7 @@ export default function EditData(props) {
     if(confirmWarning()){
       try{
 
-        const resp = await editRecordApi(data,"1234123")
+        const resp = await editRecordApi(data,selectedItem._id)
         const newData = resp.newData
         newData.date = new Date(newData.date).toString()
         await dispatch(updateRecord(newData))
