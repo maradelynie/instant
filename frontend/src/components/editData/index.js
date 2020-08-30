@@ -27,20 +27,25 @@ export default function EditData(props) {
     const data = mountDataEdit(selectedItem)
     
     if(confirmWarning()){
-      await editRecordApi(data)
-      await dispatch(updateRecord(data))
+      const resp = await editRecordApi(data,selectedItem._id)
+      const newData = resp.newData
+      newData.date = new Date(newData.date).toString()
+
+      await dispatch(updateRecord(newData))
       props.setModal(false) 
     }
     
   }
 
   const mountDataEdit = (oldData) => {
-    const data = oldData;
+    const data = {}
 
+    data.date = oldData.date
     data.gotIn = formatMoutData(gotIn)
     data.goneLunch = formatMoutData(goneLunch)
     data.backLunch = formatMoutData(backLunch)
     data.gotOut = formatMoutData(gotOut)
+    data.yearMonth = oldData.yearMonth
 
     return data
   }

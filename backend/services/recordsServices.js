@@ -39,9 +39,8 @@ async function edit(req, res) {
           message: 'No Data to Update',
         });
     }
-
     try{
-        const record = await recordsModel.findOneAndUpdate({_id: req.params.id}, newData, {new: true,useFindAndModify:false});
+        const record = await recordsModel.findOneAndUpdate({_id: req.params.id}, req.body, {new: true,useFindAndModify:false});
         res.send({res:true, newData:record})
 
     } catch (error) {
@@ -52,4 +51,4 @@ async function edit(req, res) {
 
 const recordsModel = require('../models/recordsModel');
 
-module.exports = {read, create, deleteOne, edit};
+module.exports = {read, create, deleteOne, edit}; 

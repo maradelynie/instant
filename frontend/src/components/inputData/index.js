@@ -22,7 +22,6 @@ export default function InputData(props) {
 
   const sendData = async (e) => {
     e.preventDefault()
-   
 
     if(confirmWarning()){
       const data = mountDataInput()

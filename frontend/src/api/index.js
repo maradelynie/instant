@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-const base = "https://instant-back.herokuapp.com/instant/records/";
+const base = "http://localhost:3001/instant/records/";
 const user = "DefaultUser001"
 
 const api = axios.create({
@@ -22,9 +22,10 @@ export async function deleteRecordApi(id)  {
     const response = await api.delete(id);
     return response.data
 }
-export async function editRecordApi(data)  {
-
-    const response = await api.put(data._id,data);
+export async function editRecordApi(data,id)  {
+    const fullData = data
+    fullData.user = user
+    const response = await api.put(id,fullData);
 
     return response.data
 }
@@ -32,7 +33,6 @@ export async function editRecordApi(data)  {
 export async function postRecordApi(data)  {
     const fullData = data
     fullData.user = user
-
     const response = await api.post(null,fullData);
     
     return response.data
