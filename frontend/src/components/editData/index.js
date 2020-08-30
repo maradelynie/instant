@@ -24,7 +24,7 @@ export default function EditData(props) {
   const sendUpdate = async (e) => {
     e.preventDefault()
     
-    const data = mountDataEdit(selectedItem)
+    const data = mountDataEdit()
     
     if(confirmWarning()){
       const resp = await editRecordApi(data,selectedItem._id)
@@ -37,15 +37,13 @@ export default function EditData(props) {
     
   }
 
-  const mountDataEdit = (oldData) => {
+  const mountDataEdit = () => {
     const data = {}
 
-    data.date = oldData.date
     data.gotIn = formatMoutData(gotIn)
     data.goneLunch = formatMoutData(goneLunch)
     data.backLunch = formatMoutData(backLunch)
     data.gotOut = formatMoutData(gotOut)
-    data.yearMonth = oldData.yearMonth
 
     return data
   }

@@ -39,8 +39,11 @@ export default function MainContent(props) {
 
   useEffect(() => {
     const getBdData = async () => {
+      props.setLoading(true)
       const data = await getRecordsApi("")
       dispatch(setRecords(data))
+      props.setLoading(false)
+
     }
     getBdData()
     
