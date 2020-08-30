@@ -40,7 +40,7 @@ async function edit(req, res) {
         });
     }
 
-     try{
+    try{
         const record = await recordsModel.findOneAndUpdate({_id: req.params.id}, newData, {new: true,useFindAndModify:false});
         res.send({res:true, newData:record})
 

@@ -4,6 +4,7 @@ import { fortmatMilliTimer } from "../../utils";
 import {TimerClock} from './style';
 import './style.scss';
 
+import {postRecordApi} from "../../api";
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -67,14 +68,15 @@ export default function TimeTracker(props) {
     setButtonLabel("go home")
     setButtonAction(() => goHome)
   }
-  const goHome = () =>{
+  const goHome = async () =>{
 
     dataToSend.gotOut = (new Date()).toString().split(" ")[4]
     dataToSend.date = new Date().toString()
     dataToSend.yearMonth = (new Date()).toString().split(" ")[1]+" "+(new Date()).toString().split(" ")[3]
-    dataToSend.id= new Date().toString()
     
-    
+    const resp = await postRecordApi(dataToSend)
+    const newData = resp.newRecord
+    newData.date = new Date(newData.date).toString()
 
     window.clearInterval(interval);
     setTimer(0)
@@ -83,7 +85,7 @@ export default function TimeTracker(props) {
     setButtonLabel("start timer")
     setButtonAction(()=> startTimer );
 
-    dispatch(addRecord(dataToSend))
+    dispatch(addRecord(newData))
   }
   const timeRecorded = () =>{
     setButtonLabel("time recorded")

@@ -9,6 +9,8 @@ import './style.scss';
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import {postRecordApi} from "../../api";
+
 export default function InputData(props) {
   const dispatch = useDispatch();
 
@@ -21,10 +23,15 @@ export default function InputData(props) {
   const sendData = async (e) => {
     e.preventDefault()
    
-    const data = mountDataInput()
-    
+
     if(confirmWarning()){
-      await dispatch(addRecord(data))
+      const data = mountDataInput()
+
+      const resp = await postRecordApi(data)
+      const newData = resp.newRecord
+      newData.date = new Date(newData.date).toString()
+
+      await dispatch(addRecord(newData))
       props.setModal(false)
     }
     

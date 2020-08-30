@@ -23,9 +23,17 @@ export async function deleteRecordApi(id)  {
     return response.data
 }
 export async function editRecordApi(data)  {
-    console.log(data)
 
     const response = await api.put(data._id,data);
+
+    return response.data
+}
+
+export async function postRecordApi(data)  {
+    const fullData = data
+    fullData.user = user
+
+    const response = await api.post(null,fullData);
     
     return response.data
 }
