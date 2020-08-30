@@ -6,6 +6,13 @@ try it:
 
 https://instant-phi.vercel.app/
 
+### Next fase
+
+* keep runing with closed page
+* UI tests with Snapshot
+* Register and Login
+* PWA
+
 ## Getting Started
 
 For to have this project running on your computer you just need to clone the the repo and run $ yarn or $ npm install.
