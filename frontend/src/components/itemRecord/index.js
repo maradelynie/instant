@@ -14,7 +14,7 @@ export default function ItemRecord(props) {
   const {defaultTime} = useSelector(state => state);
 
   const {data} = props;
-
+  
   const lunchTime = timeDiference(data.goneLunch, data.backLunch,data.date);
   const totalTime = timeDiference(data.gotIn,data.gotOut,data.date)-lunchTime;
   const diffTime = totalTime-(3600000*defaultTime);

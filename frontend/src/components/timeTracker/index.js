@@ -74,7 +74,7 @@ export default function TimeTracker(props) {
     dataToSend.yearMonth = (new Date()).toString().split(" ")[1]+" "+(new Date()).toString().split(" ")[3]
     dataToSend.id= new Date().toString()
     
-    //alterar para retorno do id da api
+    
 
     window.clearInterval(interval);
     setTimer(0)

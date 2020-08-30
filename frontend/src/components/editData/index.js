@@ -10,6 +10,8 @@ import './style.scss';
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import {editRecordApi} from "../../api";
+
 export default function EditData(props) {
   const dispatch = useDispatch();
   const {selectedItem} = useSelector(state => state);
@@ -25,6 +27,7 @@ export default function EditData(props) {
     const data = mountDataEdit(selectedItem)
     
     if(confirmWarning()){
+      await editRecordApi(data)
       await dispatch(updateRecord(data))
       props.setModal(false) 
     }

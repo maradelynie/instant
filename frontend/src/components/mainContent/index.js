@@ -40,7 +40,7 @@ export default function MainContent(props) {
   useEffect(() => {
     const getBdData = async () => {
       const data = await getRecordsApi("")
-      dispatch(setRecords(data.records))
+      dispatch(setRecords(data))
     }
     getBdData()
     

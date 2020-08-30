@@ -1,6 +1,7 @@
 testes
 refatorar backend
 tratar erros
+loading
 conectar banco
 fazer deploy
 documentar
