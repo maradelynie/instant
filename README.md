@@ -2,7 +2,7 @@
 
 instant is a experimental app for to track work time. It was made to experiment more with fullStack development with ReactJs, NodeJs, MongoDB and lots of libraries.
 
-try it in :
+try it:
 
 https://instant-phi.vercel.app/
 
