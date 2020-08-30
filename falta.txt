@@ -1,7 +1,9 @@
 testes
 refatorar backend
-tratar erros
 loading
 conectar banco
+fazer formatação por periodo
+
+tratar erros
 fazer deploy
 documentar

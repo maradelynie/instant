@@ -16,7 +16,7 @@ function reducer(state = INITIAL_STATE, action){
         case "ADD_RECORD":
         return {
             ...state,
-            records: [...state.records,action.value]
+            records: [action.value,...state.records]
         }
         case "DELETE_RECORD":
         

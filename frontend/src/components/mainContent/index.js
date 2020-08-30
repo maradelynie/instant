@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import TimeTracker from '../timeTracker';
 import RecordsFrom from '../recordsFrom';
 import BgAnimation from '../bgAnimation';
+import ShowMore from '../showMore';
 import {setRecords} from "../../redux/actions";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
@@ -15,6 +16,8 @@ export default function MainContent(props) {
   const {records} = useSelector(state => state);
 
   const [recorded, setRecorded] = useState(false)
+  const [loadMore, setLoadMore] = useState(false)
+  const [loadPage, setLoadPage] = useState(0)
 
   function checkTodayRecord(data) {
     const today = new Date().toString()
@@ -36,16 +39,34 @@ export default function MainContent(props) {
     return arr.slice(0,4).toString()
 
   }
+  const getLoadMore = () => {
+    const newPage = loadPage+1
+    setLoadPage(newPage)
+    getBdData(newPage)
+  }
+  
+  const checkLoadMore = (arr) => {
+   if(arr.length<5){
+     return setLoadMore(true)
+   }
+   return setLoadMore(false)
+  }
+  const getBdData = async (page) => {
+    props.setLoading(true)
+
+    const data = await getRecordsApi(page)
+    
+    checkLoadMore(data)
+
+    dispatch(setRecords([...records,...data]))
+    
+    props.setLoading(false)
+
+  }
 
   useEffect(() => {
-    const getBdData = async () => {
-      props.setLoading(true)
-      const data = await getRecordsApi("")
-      dispatch(setRecords(data))
-      props.setLoading(false)
-
-    }
-    getBdData()
+  
+    getBdData(loadPage)
     
   }, [dispatch])
   
@@ -60,6 +81,7 @@ export default function MainContent(props) {
       <div className="main__animation"><BgAnimation/></div>
       <div className="default__card"><TimeTracker recorded={recorded} setModal={props.setModal} /></div>
       <div className="default__card"><RecordsFrom setModal={props.setModal} /></div>
+      <ShowMore action={getLoadMore} noMore={loadMore}/>
     </main>
   );
 }
