@@ -14,9 +14,16 @@ export default function DeleteData(props) {
   const {selectedItem} = useSelector(state => state);
   
   const confirmDelete = async () => {
-    await deleteRecordApi(selectedItem._id)
-    await dispatch(deleteRecord(selectedItem))
-    props.setModal(false)
+    try{
+      await deleteRecordApi(selectedItem._id)
+      await dispatch(deleteRecord(selectedItem))
+      props.setModal(false)
+
+    }catch{
+      props.setModal(false)
+      return props.setError("Something went wrong deleting this record, please try again later.")
+    }
+    
   }
    
 

@@ -12,15 +12,15 @@ export default function ModalComponent(props) {
   }
   const modalContent = () => {
     if(props.modal==="edit"){
-      return <EditData setModal={props.setModal}/>
+      return <EditData setError={props.setError} setModal={props.setModal}/>
 
     }
     if(props.modal==="delete"){
-      return <DeleteData setModal={props.setModal}/>
+      return <DeleteData setError={props.setError} setModal={props.setModal}/>
       
     }
     if(props.modal==="input"){
-      return <InputData setModal={props.setModal}/>
+      return <InputData setError={props.setError} setModal={props.setModal}/>
       
     }
   }

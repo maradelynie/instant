@@ -27,12 +27,19 @@ export default function EditData(props) {
     const data = mountDataEdit()
     
     if(confirmWarning()){
-      const resp = await editRecordApi(data,selectedItem._id)
-      const newData = resp.newData
-      newData.date = new Date(newData.date).toString()
+      try{
 
-      await dispatch(updateRecord(newData))
-      props.setModal(false) 
+        const resp = await editRecordApi(data,"1234123")
+        const newData = resp.newData
+        newData.date = new Date(newData.date).toString()
+        await dispatch(updateRecord(newData))
+        props.setModal(false) 
+
+      }catch{
+        props.setModal(false)
+        return props.setError("Something went wrong editing this record, please try again later.")
+      }
+      
     }
     
   }
@@ -52,7 +59,7 @@ export default function EditData(props) {
           <div className="default__card">
           <FontAwesomeIcon onClick={e=> props.setModal(false)} className="icon__close" icon={faTimes}/> 
 
-          <h2>Edit record {selectedItem.date.split(" ")[1]+" "+selectedItem.date.split(" ")[2]+" "+selectedItem.date.split(" ")[3]}</h2>
+          <h2>Edit {selectedItem.date.split(" ")[1]+" "+selectedItem.date.split(" ")[2]+" "+selectedItem.date.split(" ")[3]}</h2>
             
               <form >
                 <div className="form__edit">

@@ -25,13 +25,19 @@ export default function InputData(props) {
 
     if(confirmWarning()){
       const data = mountDataInput()
-
-      const resp = await postRecordApi(data)
-      const newData = resp.newRecord
-      newData.date = new Date(newData.date).toString()
-
-      await dispatch(addRecord(newData))
-      props.setModal(false)
+      
+      try{
+        const resp = await postRecordApi(data)
+        const newData = resp.newRecord
+        newData.date = new Date(newData.date).toString()
+  
+        await dispatch(addRecord(newData))
+        props.setModal(false)
+  
+      }catch{
+        props.setModal(false)
+        return props.setError("Something went wrong saving this record, please try again later.")
+      }
     }
     
   }

@@ -54,14 +54,17 @@ export default function MainContent(props) {
   const getBdData = async (page) => {
     props.setLoading(true)
 
-    const data = await getRecordsApi(page)
-    
-    checkLoadMore(data)
+    try{
+      const data = await getRecordsApi(page)
+      checkLoadMore(data)
+      dispatch(setRecords([...records,...data]))
+      props.setLoading(false)
 
-    dispatch(setRecords([...records,...data]))
-    
-    props.setLoading(false)
+    }catch{
+      props.setLoading(false)
 
+      return props.setError("Something went wrong retriving your data, please try again later.")
+    }
   }
 
   useEffect(() => {
@@ -79,7 +82,7 @@ export default function MainContent(props) {
   return (
     <main className="main__container">
       <div className="main__animation"><BgAnimation/></div>
-      <div className="default__card"><TimeTracker recorded={recorded} setModal={props.setModal} /></div>
+      <div className="default__card"><TimeTracker setError={props.setError} recorded={recorded} setModal={props.setModal} /></div>
       <div className="default__card"><RecordsFrom setModal={props.setModal} /></div>
       <ShowMore action={getLoadMore} noMore={loadMore}/>
     </main>

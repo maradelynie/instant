@@ -73,19 +73,30 @@ export default function TimeTracker(props) {
     dataToSend.gotOut = (new Date()).toString().split(" ")[4]
     dataToSend.date = new Date().toString()
     dataToSend.yearMonth = (new Date()).toString().split(" ")[1]+" "+(new Date()).toString().split(" ")[3]
-    
-    const resp = await postRecordApi(dataToSend)
-    const newData = resp.newRecord
-    newData.date = new Date(newData.date).toString()
 
+    try{
+      const resp = await postRecordApi(dataToSend)
+      const newData = resp.newRecord
+      newData.date = new Date(newData.date).toString()
+      
+      resetTimer()
+      
+      dispatch(addRecord(newData))
+
+    }catch{
+      props.setModal(false)
+      return props.setError("Something went wrong saving this record, please try again later.")
+    }
+
+  }
+  const resetTimer = () =>{
     window.clearInterval(interval);
-    setTimer(0)
-    setTimerStatus(false)
+      setTimer(0)
+      setTimerStatus(false)
+  
+      setButtonLabel("start timer")
+      setButtonAction(()=> startTimer );
 
-    setButtonLabel("start timer")
-    setButtonAction(()=> startTimer );
-
-    dispatch(addRecord(newData))
   }
   const timeRecorded = () =>{
     setButtonLabel("time recorded")

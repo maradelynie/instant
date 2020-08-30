@@ -24,14 +24,15 @@ export default function RecordsFrom(props) {
 
    }
   }
+
   return (
-    recordsToShow?.map(records =>{
-      return (<>
-      <h2 className="recordsFrom__title">Records from {records[0].yearMonth}</h2>
+    recordsToShow?.map((records) =>{
+      return (<div key={records[0].yearMonth}>
+      <h2  className="recordsFrom__title">Records from {records[0].yearMonth}</h2>
         {records?.map(record => {
         return <ItemRecord key={record._id} data={record} setModal={props.setModal}/>
       })}
-      </>)
+      </div>)
     }
   ))
 }
