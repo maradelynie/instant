@@ -28,7 +28,7 @@ function reducer(state = INITIAL_STATE, action){
         
         return {
             ...state,
-            records: [...state.records.filter(record => record._id!==action.value._id), action.value]
+            records: [action.value, ...state.records.filter(record => record._id!==action.value._id)]
 
         }    
         case "SELECT_ITEM":
