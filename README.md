@@ -1,10 +1,14 @@
 # instant - FullStack Project
 
-instant is a experimental app for to track work time. It was made to experiment more with fullStack development with ReactJs, NodeJs, MongoDB and lots of libraries.
+instant is was made to experiment more with fullStack development in ReactJs, NodeJs, MongoDB and lots of libraries.
 
 try it:
 
 https://instant-phi.vercel.app/
+
+
+[![](https://github.com/maradelynie/instant/blob/master/video.png)](https://www.youtube.com/watch?v=UC28as3uB0k)
+
 
 ### Next fase
 
