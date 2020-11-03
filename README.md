@@ -1,10 +1,19 @@
-# pizz'n'go - FrontEnd Project
+# instant - FullStack Project
 
-pizz'n'go is a frontend project developed in ReactJs, SCSS with a simple backend in NodeJs using MongoDB.
+instant was made to experiment more with fullStack development in ReactJs, NodeJs, MongoDB and lots of libraries.
 
 try it:
 
-https://pizz-n-go.vercel.app/
+https://instant-phi.vercel.app/
+
+[![](https://github.com/maradelynie/instant/blob/master/video.png)](https://www.youtube.com/watch?v=UC28as3uB0k)
+
+### Next fase
+
+- keep runing with closed page
+- UI tests with Snapshot
+- Register and Login
+- PWA
 
 ## Getting Started
 
@@ -12,27 +21,19 @@ For to have this project running on your computer you just need to clone the the
 
 ### Prerequisites
 
-First of all you will need NodeJs, a browser that can run V8 engine like Chrome and a package manager like NPM (but I strongly recommend to use Yarn)
+First of all you will need NodeJs, a browser that can run V8 engine like Chrome and a packege manager like NPM (but I strongly recommend to use Yarn)
 
+[Get Node Here](https://nodejs.org/en/)
 
-[Get Node Here](https://nodejs.org/en/) 
-
-[Get Yarn Here](https://yarnpkg.com/) 
+[Get Yarn Here](https://yarnpkg.com/)
 
 This project uses DataBase from MongoDB, for use that you will need to have an Cluster with a database "askMe" on atlas MongoDB.
 
 [SingUp MongoDB Here](https://cloud.mongodb.com/)
 
-## Author comments
-
-This is a fast development, it still needs a lot to improve, but as it was a time limit to finish. I'm leaving the next features for the next releases.
-Any comments or ideas feel free to collaborate.
-
-
 ## Installing
 
 To open the Dev mode you need to clone the repo, install and initialize both, backend and frontend.
-
 
 ### preparing;
 
@@ -44,12 +45,13 @@ DB_CONNECTION="mongodb+srv://<username>:<password>@cluster0-xfzvp.mongodb.net/as
 PORT=3001
 ```
 
-To configure the frontend API url create a .env file with;
+To configure the fonrtend API adress you can put your own or do use mine.
+For to use your API adress go to the file frontend>src>api>index.js
 
 change in:
 
 ```
-REACT_APP_BD_URL = "<api base url>";
+const base = "<your new url>";
 ```
 
 ### install;
@@ -57,17 +59,18 @@ REACT_APP_BD_URL = "<api base url>";
 Open your terminal and navigate to the backend folder on the cloned repo folder and install the dependencies with this command line;
 
 ```
-$ npm install    (or)       $ yarn 
+$ npm install    (or)       $ yarn
 ```
+
 (wait till finished)
 
 Now navigate to frontend folder and use the same;
 
 ```
-$ npm install    (or)       $ yarn 
+$ npm install    (or)       $ yarn
 ```
-(wait till finished)
 
+(wait till finished)
 
 ### run the server;
 
@@ -79,7 +82,6 @@ $ npm run server   (or)       $ yarn server
 
 It will prepare the server. When you receive the port info your server is ready to go.
 
-
 ### run the app;
 
 Now open another terminal and past the following command line;
@@ -90,38 +92,45 @@ $ npm run start   (or)       $ yarn start
 
 Now the application is running. It will open on your browser.(if not just open http://localhost:3000/ and wait till load)
 
+## Running the tests
+
+There is unitary tests for all utils functions used here.
+it can be run with the following command line at the frontend folder:
+
+```
+$ npm run test    (or)       $ yarn test
+```
 
 ## Deployment
 
 The app is deployed on heroku in the following url:
 
+[frontend](https://instant-phi.vercel.app/)
 
-[frontend](https://pizz-n-go.vercel.app/) 
-
-[backend](https://pizz-n-go.herokuapp.com/api/orders)
-
+[backend](https://dashboard.heroku.com/apps/instant-back)
 
 ## Made With
 
-* reactJs
-* Redux
-* Sass 
-* axios 
-* Express 
-* mongoose
-* mongoDB
+- reactJs
+- Redux
+- Sass
+- Styled components
+- Jest
+- axios
+- Express
+- mongoose
+- mongoDB
 
-* git
-* vercel
-* heroku
+- git
+- vercel
+- heroku
 
--See more at package.json on backend and frontend folder
+-See more at packege.json on backend and frontend folder
 
 ## Authors
 
-**Mara Oliveira** 
-
+**Mara Oliveira**
 
 ## License
 
- MIT
+MIT
